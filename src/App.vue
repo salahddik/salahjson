@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <H1>SALAH EDDINE FILE JSON READER AXIOS API</H1>
+
+<H2>"{{ SALAHTEST }}"</H2>
+
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
+import { ref } from 'vue';
+export default{
+  setup (){
+const SALAHTEST = ref('')
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    axios.get('https://mocki.io/v1/d9bc6bf6-892f-4ecf-b59f-74f37fb71647')
+    .then(response =>{
+      SALAHTEST.value= response.data.CAR
+    })
+    return{
+      SALAHTEST
+    }
   }
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+</script>
